@@ -6,6 +6,19 @@
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
     },
+
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/parkhojun/ainized-breast_cancer_classifier.git"
+      },
+      "author": "",
+      "license": "ISC",
+      "bugs": {
+        "url": "https://github.com/parkhojun/ainized-breast_cancer_classifier/issues"
+      },
+      "homepage": "https://github.com/parkhojun/ainized-breast_cancer_Classifier#readme",
+
+
     "dependencies": {
         "async": "^3.1.0",
         "canvas-free-drawing": "^2.0.4",
@@ -20,4 +33,6 @@
         "request": "^2.88.0",
         "sha1": "^1.1.1"
     }
+
+
 }
