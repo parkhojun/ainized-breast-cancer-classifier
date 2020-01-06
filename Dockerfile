@@ -35,5 +35,5 @@ RUN npm install sync-exec
 
 COPY . .
 EXPOSE 80
-ENTRYPOINT app.js
+ENTRYPOINT npm start
 
