@@ -3,9 +3,6 @@ FROM pytorch/pytorch
 CMD ["bash"]
 
 
-
-
-
 WORKDIR /workspace
 RUN apt-get update
 RUN apt-get -y install curl gnupg
@@ -35,5 +32,5 @@ RUN npm install sync-exec
 
 COPY . .
 EXPOSE 80
-ENTRYPOINT node app.js
+ENTRYPOINT npm start
 
