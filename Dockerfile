@@ -9,7 +9,7 @@ RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 
 WORKDIR /workspace
 RUN apt-get update
-RUN apt get install vim -y
+RUN apt-get install vim -y
 RUN pip install -U pip
 RUN python -m pip install -U matplotlib
 RUN pip install h5py
