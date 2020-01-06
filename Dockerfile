@@ -2,8 +2,12 @@ FROM pytorch/pytorch
 
 CMD ["bash"]
 
-COPY package.json .
 
+RUN apt-get -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+
+
+WORKDIR /workspace
 RUN apt-get update
 RUN apt get install vim -y
 RUN pip install -U pip
@@ -18,8 +22,16 @@ RUN pip install numpy
 RUN apt-get install -y libsm6 libxext6 libxrender-dev
 RUN apt-get install libgtk2.0-dev -y
 RUN apt-get install libglfw3-dev libgles2-mesa-dev -y
-RUN git clone https://github.com/nyukat/breast_cancer_classifier.git
+RUN git clone https://github.com/parkhojun/ainized-breast_cancer_classifier.git
+WORKDIR /workspace/ainized-breast_cacncer_classifier/
+
+RUN rm -rf node_modules && npm install
+
+COPY package.json .
+RUN npm install
+RUN npm install sync-exec
 
 COPY . .
 EXPOSE 80
-ENTRYPOINT node server.js
+ENTRYPOINT npm start
+
