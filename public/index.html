@@ -88,7 +88,7 @@
 
             function fetchEval() {
                 const xhr = new XMLHttpRequest();
-                xhr.timout = 200000000000;
+                xhr.timout = 200000000;
                 xhr.open("GET", encodeURI(`/eval`), true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = () => {
