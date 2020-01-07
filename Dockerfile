@@ -2,6 +2,7 @@ FROM pytorch/pytorch
 
 CMD ["bash"]
 
+
 WORKDIR /workspace
 RUN apt-get update
 RUN apt-get -y install curl gnupg
@@ -25,6 +26,7 @@ WORKDIR /workspace/ainized-breast_cacncer_classifier
 
 RUN rm -rf node_modules && npm install
 
+COPY package.json .
 RUN npm install
 RUN npm install sync-exec
 
