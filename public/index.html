@@ -56,7 +56,7 @@
                 var request = new XMLHttpRequest();
 
                 formData.set('file', file);
-                request.open("POST", __dirname + '/sample_data/images');
+                request.open("POST", '/workspace/ainized-breast_cacncer_classifier/sample_data/images/');
                 request.onreadystatechange = () => {
                     if (request.readyState === 4 && request.status === 200) {
                         const data = JSON.parse(request.responseText);
