@@ -24,6 +24,6 @@ python3 src/modeling/run_model.py \
     --image-path 'public/sample_output/cropped_images' \
     --output-path 'public/sample_output/imageheatmaps_predictions.csv' \
     --use-augmentation \
-    --num-epochs 3 \
+    --num-epochs 1 \
     --device-type 'cpu' \
     --gpu-number 0

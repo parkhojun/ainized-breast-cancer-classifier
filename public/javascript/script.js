@@ -10,13 +10,7 @@ window.onload = () => {
     let timer = undefined;
     let start = undefined;
 
-    document.getElementById("select")
-        .addEventListener('click', (event) => {
-            event.preventDefault();
-            fileInput.click();
-        });
-
-    fileCatcher.addEventListener('submit', async (event) => {
+    function start_timer() {
         document.getElementById("preloader").style.display = "block";
 
         start = 0;
@@ -24,8 +18,22 @@ window.onload = () => {
             start += 1;
             time_obj.innerText = `${start / 10} 's`;
         }, 100);
+    }
 
+    function stop_timer() {
+        document.getElementById("preloader").style.display = "none";
+        clearInterval(timer);
+    }
+
+    document.getElementById("select")
+        .addEventListener('click', (event) => {
+            event.preventDefault();
+            fileInput.click();
+        });
+
+    fileCatcher.addEventListener('submit', async (event) => {
         event.preventDefault();
+        start_timer();
         await uploadFile(fileList);
         fetchEval();
     });
@@ -42,7 +50,19 @@ window.onload = () => {
         fileListDisplay.innerHTML = '';
         fileList.forEach((file, index) => {
             let fileDisplayEl = document.createElement('li');
+            fileDisplayEl.style.padding = "3px";
+
+            let button = document.createElement('button');
+            button.style.marginLeft = "3px";
+            button.type = "button"
+            button.innerText = 'RUN';
+            button.className = "btn btn-success btn-sm"
+            button.value = file.name;
+
+            button.onclick = fetchEvalSingle;
+
             fileDisplayEl.innerHTML = file.name;
+            fileDisplayEl.append(button);
             fileListDisplay.appendChild(fileDisplayEl);
         });
     };
@@ -71,15 +91,37 @@ window.onload = () => {
 
     function fetchEval() {
         const xhr = new XMLHttpRequest();
-        xhr.timeout = 1000 * 300000;
+        xhr.timeout = 1000 * 3000;
         xhr.open("GET", encodeURI(`/eval`), true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = () => {
-            document.getElementById("preloader").style.display = "none";
-            clearInterval(timer);
+            stop_timer();
             if (xhr.readyState === 4 && xhr.status === 200) {
                 document.getElementById("result").style.display = "block";
                 document.getElementById("log").innerText = xhr.responseText;
+            }
+        };
+        xhr.send(null);
+    }
+
+    function fetchEvalSingle(event) {
+        event.preventDefault();
+        start_timer();
+
+        const image = event.target.value;
+
+        const xhr = new XMLHttpRequest();
+        xhr.timeout = 1000 * 3000;
+        xhr.open("GET", encodeURI(`/eval/${image}`), true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = () => {
+            stop_timer();
+            clearInterval(timer);
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                console.log(data);
+                // document.getElementById("result").style.display = "block";
+                // document.getElementById("log").innerText = xhr.responseText;
             }
         };
         xhr.send(null);
