@@ -8,9 +8,9 @@ router.get('/', (req, res, next) => {
     console.log(11);
     exec("bash run.sh", (error, stdout, stderr) => {
         if (!error) {
-            res.json({ "eval": stdout });
+            res.json({ "msg": stdout });
         } else {
-            res.json({ "eval": stderr });
+            res.json({ "msg": stderr });
         }
     });
 });
@@ -25,9 +25,9 @@ router.get('/:image', (req, res, next) => {
     exec(query, (error, stdout, stderr) => {
         console.log(stdout);
         if (!error) {
-            res.json({ "eval": stdout });
+            res.json({ "msg": stdout });
         } else {
-            res.json({ "eval": stderr });
+            res.json({ "msg": stderr });
         }
     });
 });
