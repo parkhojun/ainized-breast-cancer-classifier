@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
         if (!error) {
             res.json({ "eval": stdout });
         } else {
-            res.json({ "eval": "Fail" });
+            res.json({ "eval": stderr });
         }
     });
     //const out2 = exec('bash run_single.sh "sample_data/images/0_L_CC.png" "L-CC"');
