@@ -5,13 +5,14 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-    exec('bash run_test.sh',  (error, stdout, stderr) => {
+    exec('bash run.sh',  (error, stdout, stderr) => {
         if (!error) {
             res.json({ "eval": stdout });
         } else {
             res.json({ "eval": stderr });
         }
     });
+
     //const out2 = exec('bash run_single.sh "sample_data/images/0_L_CC.png" "L-CC"');
 
     //const out1 = exec('pwd');
