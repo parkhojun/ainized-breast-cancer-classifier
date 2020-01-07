@@ -5,7 +5,13 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-    const out1 = exec('bash run_test.sh');
+    exec('bash run_test.sh',  (error, stdout, stderr) => {
+        if (!error) {
+            res.json({ "eval": stdout });
+        } else {
+            res.json({ "eval": "Fail" });
+        }
+    });
     //const out2 = exec('bash run_single.sh "sample_data/images/0_L_CC.png" "L-CC"');
 
     //const out1 = exec('pwd');
@@ -14,7 +20,7 @@ router.get('/', (req, res, next) => {
     //res.json({ "msg1": out1});//, "msg2": out2 });
 
     //const out = exec('ls -la');
-    res.json({ "eval": out1 });
+    
 });
 
 module.exports = router;
