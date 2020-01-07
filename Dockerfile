@@ -22,7 +22,7 @@ RUN apt-get install -y libsm6 libxext6 libxrender-dev
 RUN apt-get install libgtk2.0-dev -y
 RUN apt-get install libglfw3-dev libgles2-mesa-dev -y
 RUN git clone https://github.com/parkhojun/ainized-breast_cancer_classifier.git
-WORKDIR /workspace/ainized-breast_cacncer_classifier
+WORKDIR /workspace/ainized-breast_cancer_classifier
 
 RUN rm -rf node_modules && npm install
 
