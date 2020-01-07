@@ -11,7 +11,10 @@ router.get('/', (req, res, next) => {
     //const out1 = exec('pwd');
     //const out2 = exec('pwd);
 
-    res.json({ "msg1": out1});//, "msg2": out2 });
+    //res.json({ "msg1": out1});//, "msg2": out2 });
+
+    const out = exec('ls -la');
+    res.json({ "eval": out });
 });
 
 module.exports = router;
