@@ -6,6 +6,7 @@ let router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
     exec('bash run.sh',  (error, stdout, stderr) => {
+        console.log(stdout, stderr);
         if (!error) {
             res.json({ "eval": stdout });
         } else {
