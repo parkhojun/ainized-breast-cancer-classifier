@@ -25,5 +25,5 @@ python3 src/modeling/run_model.py \
     --output-path 'sample_output/imageheatmaps_predictions.csv' \
     --use-augmentation \
     --num-epochs 10 \
-    --device-type 'gpu' \
+    --device-type 'cpu' \
     --gpu-number 0
