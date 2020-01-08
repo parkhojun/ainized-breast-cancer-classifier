@@ -19,7 +19,7 @@ app.use('/', indexRouter);
 app.use('/upload', uploadRouter);
 app.use('/eval', evaluationRouter);
 
-const server = app.listen(8080, () => {
+const server = app.listen(80, () => {
 });
 
 module.exports = app;
