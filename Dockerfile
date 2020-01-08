@@ -31,6 +31,6 @@ RUN npm install
 RUN npm install sync-exec
 
 COPY . .
-EXPOSE 8080
+EXPOSE 80
 ENTRYPOINT npm start
 
