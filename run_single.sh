@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEVICE_TYPE='cpu'
-NUM_EPOCHS=5
+NUM_EPOCHS=10
 HEATMAP_BATCH_SIZE=100
 GPU_NUMBER=0
 
@@ -20,7 +20,7 @@ python3 src/cropping/crop_single.py \
     --cropped-mammogram-path ${SAMPLE_SINGLE_OUTPUT_PATH}/cropped.png \
     --metadata-path ${SAMPLE_SINGLE_OUTPUT_PATH}/cropped_metadata.pkl
 
-#echo 'Stage 2: Extract Centers'
+echo 'Stage 2: Extract Centers'
 python3 src/optimal_centers/get_optimal_center_single.py \
     --cropped-mammogram-path ${SAMPLE_SINGLE_OUTPUT_PATH}/cropped.png \
     --metadata-path ${SAMPLE_SINGLE_OUTPUT_PATH}/cropped_metadata.pkl
