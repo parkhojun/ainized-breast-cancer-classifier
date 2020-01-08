@@ -3,7 +3,7 @@
 DEVICE_TYPE='cpu'
 NUM_EPOCHS=10
 HEATMAP_BATCH_SIZE=100
-GPU_NUMBER=10
+GPU_NUMBER=0
 
 PATCH_MODEL_PATH='models/sample_patch_model.p'
 IMAGE_MODEL_PATH='models/ImageOnly__ModeImage_weights.p'

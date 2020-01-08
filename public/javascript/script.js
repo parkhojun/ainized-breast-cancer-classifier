@@ -91,7 +91,7 @@ window.onload = () => {
 
     function fetchEval() {
         const xhr = new XMLHttpRequest();
-        xhr.timeout = 1000 * 3000;
+        xhr.timeout = 1000 * 30000;
         xhr.open("GET", encodeURI(`/eval`), true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = () => {
