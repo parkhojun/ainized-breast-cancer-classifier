@@ -1,3 +1,56 @@
+# ainized-breast_cancer_classifier
+
+[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/parkhojun/ainized-breast_cancer_classifier.git)
+
+https://hojunpark.substack.com/p/coming-soon
+
+This repository provides a server that infers instance benign and malignant possiblity rate of breast cancer for an image based on a ResNet 22 model. The model used in the server is from yukat/breast_cancer_classifier,git which is paper from "Deep Neural Networks Improve Radiologists' Performance in Breast Cancer Screening".
+
+
+The inference using server is done in the following steps:
+1. User publishes an image files.
+2. server returns a image and benign, malignant possiblity rate. 
+   Note that the server is implemented in Node.js.
+
+# How to deploy
+this server is dockerized, so it can be built and run using docker commands.
+
+# Docker build
+```
+docker build -t mara8534/ainized-breast-cancer-classifier .
+```
+
+# Docker run
+```
+docker run -p 80:80 -it mara8534/ainized-breast-cancer-classifier
+```
+Now the server is available at http://localhost:80.
+
+Note that the docker image can be deployed using any docker-based deploy platform (e.g. ainize.ai).
+
+You can see the demo server from below site
+https://endpoint.ainize.ai/parkhojun/ainized-breast-cancer-classifier/
+
+# How to publish an image file
+
+The image to be evaluated needs to be published first. You can refer to the two following examples of how to publish image files:
+
+1. Click 'Select File' button and upload 16images of repository(in 'upload_img' folder)
+2. Click 'submit' button.
+3. Wait. then when upload success, Click 'Run' button each side of file name.
+<img src="./readme_img/img1.png" width="500" />
+
+<img src="./readme_img/img2.png" width="500" />
+
+The result is like this.
+
+<img src="./readme_img/img3.png" width="500" />
+
+# References
+1. https://github.com/nyukat/breast_cancer_classifier
+
+--------
+
 # Deep Neural Networks Improve Radiologists' Performance in Breast Cancer Screening
 
 ## Introduction
