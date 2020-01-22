@@ -33,7 +33,7 @@ https://endpoint.ainize.ai/parkhojun/ainized-breast-cancer-classifier/
 
 # How to publish an image file
 
-The image to be evaluated needs to be published first. You can refer to the two following examples of how to publish image files:
+The image to be evaluated needs to be published first. You can refer to the following examples of how to publish image files:
 
 1. Click 'Select File' button and upload 16images of repository(in 'upload_img' folder)
 2. Click 'submit' button.
