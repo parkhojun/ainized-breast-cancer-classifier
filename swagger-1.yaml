@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info: 
+  title: Ainized - Breast Cancer Classifier 
+  version: 0.1.1
+
+servers: 
+  - url: https://ainized-breast-cancer-classifier.parkhojun.endpoint.ainize.ai
+
+paths:
+  /eval:
+    post:
+      tags: 
+      - Classifier
+      summary: Perform
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                0_L_CC:
+                  type: string
+                  format: binary
+                0_L_MLO:
+                  type: string
+                  format: binary
+                0_R_CC:
+                  type: string
+                  format: binary
+                0_R_MLO:
+                  type: string
+                  format: binary
+                1_L_CC:
+                  type: string
+                  format: binary
+                1_L_MLO:
+                  type: string
+                  format: binary
+                1_R_CC:
+                  type: string
+                  format: binary
+                1_R_MLO:
+                  type: string
+                  format: binary
+                2_L_CC:
+                  type: string
+                  format: binary
+                2_L_MLO:
+                  type: string
+                  format: binary
+                2_R_CC:
+                  type: string
+                  format: binary
+                2_R_MLO:
+                  type: string
+                  format: binary
+                3_L_CC:
+                  type: string
+                  format: binary
+                3_L_MLO:
+                  type: string
+                  format: binary
+                3_R_CC:
+                  type: string
+                  format: binary
+                3_R_MLO:
+                  type: string
+                  format: binary
+
+
+      responses:
+        '200':
+          description: OK
+          content:
+            image/*:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request. User ID must be an integer and larger than 0.
+        '401':
+          description: Authorization information is missing or invalid.
+        '404':
+          description: A user with the specified ID was not found.
+        '5XX':
+          description: Unexpected error.

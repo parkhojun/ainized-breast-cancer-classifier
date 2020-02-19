@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/cropped_images", express.static(path.join(__dirname, 'cropped_images')));
 
 app.use('/', indexRouter);
 app.use('/upload', uploadRouter);
