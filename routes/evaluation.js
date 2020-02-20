@@ -21,7 +21,7 @@ router.get('/:image', (req, res, next) => {
     
     console.log(image, tag);
 
-    const query = `bash run_single.sh "sample_data/images/${image}" "${tag}"`
+    const query = `bash run_single_ainized.sh "sample_data/images/${image}" "${tag}"`
     exec(query, (error, stdout, stderr) => {
         console.log(stdout);
         if (!error) {

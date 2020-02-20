@@ -122,7 +122,7 @@ window.onload = () => {
                 console.log(data);
                 
                 document.getElementById("log").innerText = xhr.responseText;
-                document.getElementById('rimg').src = `sample_output/cropped_images/${image}`;
+                document.getElementById('rimg').src = `./sample_output/cropped_images/${image}`;
 
                 // document.getElementById("result").style.display = "block";
                 // document.getElementById("log").innerText = xhr.responseText;
