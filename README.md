@@ -1,6 +1,6 @@
-# Ainized-breast_cancer_classifier
+# Ainized-breast-cancer-classifier
 
-[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/parkhojun/ainized-breast_cancer_classifier.git)
+[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/parkhojun/ainized-breast-cancer-classifier.git)
 
 https://hojunpark.substack.com/p/coming-soon
 
